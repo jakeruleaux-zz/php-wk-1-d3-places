@@ -3,30 +3,30 @@
     {
         private $city;
 
-        function __construct($city)
+        function __construct($new_city)
         {
-            $this->city = $city;
+            $this->city = $new_city;
+        }
+        function setCity($new_city)
+        {
+            $this->city = (string) $new_city;
         }
         function getCity()
         {
             return $this->city;
         }
-        function setCity()
-        {
-            $this->city;
-        }
 
         function save()
         {
-            array_push($_SESSION['cities'], $this);
+            array_push($_SESSION['list_of_cities'], $this);
         }
         static function getAll()
         {
-            return $_SESSION['cities'];
+            return $_SESSION['list_of_cities'];
         }
         static function deleteAll()
         {
-            $_SESSION['cities'] = array();
+            $_SESSION['list_of_cities'] = array();
         }
     }
 ?>
