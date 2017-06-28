@@ -20,7 +20,7 @@
     });
 
     $app->post("/cities", function() use ($app) {
-        $cities = new Places($_POST['cities']);
+        $cities = new Places($_POST['cities'], $_POST['length'], $_POST['people']);
         $cities->save();
         return $app['twig']->render('create_cities.html.twig', array('new_city' => $cities));
     });
